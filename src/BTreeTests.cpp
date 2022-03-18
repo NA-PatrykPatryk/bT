@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include "gtest/gtest.h"
 #include "BTree.hpp"
 
@@ -39,9 +40,50 @@ TEST_F(BTreeTest, whenInserting2ElementSizeIs2) {
     EXPECT_EQ(intSut.size(), 2);
 }
 
-TEST_F(BTreeTest, whenInserting3ElementSizeIs3) {
+TEST_F(BTreeTest, whenInserting3DescendingElementSizeIs3) {
     intSut.insert(5);
     intSut.insert(3);
     intSut.insert(1);
     EXPECT_EQ(intSut.size(), 3);
 }
+
+TEST_F(BTreeTest, whenInserting3AscendingElementSizeIs3) {
+    intSut.insert(1);
+    intSut.insert(3);
+    intSut.insert(5);
+    EXPECT_EQ(intSut.size(), 3);
+}
+
+TEST_F(BTreeTest, printTest) {
+
+    intSut.insert(1);
+    intSut.insert(3);
+    intSut.insert(5);
+    intSut.insert(2);
+    intSut.insert(7);
+    intSut.insert(4);
+
+    intSut.print();
+
+    EXPECT_TRUE(false);
+}
+
+// TEST_F(BTreeTest, whenToVectorCalledShouldReturnVectorWithSortedElements) {
+    
+//     std::vector<int> vec{ 5, 1, 3, 8, 2 };
+    
+//     intSut.insert(vec.at(0));
+//     intSut.insert(vec.at(1));
+//     intSut.insert(vec.at(2));
+//     intSut.insert(vec.at(3));
+//     intSut.insert(vec.at(4));
+
+//     std::vector<int> resultVec{ intSut.toVector()};
+//     std::sort(vec.begin(), vec.end());
+
+//     EXPECT_EQ(vec.at(0) == resultVec.at(0));
+//     EXPECT_EQ(vec.at(1) == resultVec.at(1));
+//     EXPECT_EQ(vec.at(2) == resultVec.at(2));
+//     EXPECT_EQ(vec.at(3) == resultVec.at(3));
+//     EXPECT_EQ(vec.at(4) == resultVec.at(4));
+// }
