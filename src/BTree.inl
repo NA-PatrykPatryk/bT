@@ -74,13 +74,22 @@ void BTree<T>::printElements(Node<T>* node)
     }
 }
 
-// template <typename T>
-// std::vector<T> BTree<T>::toVector()
-// {
-//     std::vector<T> result{};
-//     Node* currentNode{ m_root };
+template <typename T>
+void BTree<T>::addElements(std::vector<T>& vec, Node<T>* node)
+{
+    if (node != nullptr)
+    {
+        addElements(vec ,node->m_left);
+        vec.push_back(node->m_val);
+        addElements(vec, node->m_right);
+    }
+}
 
-//     result.push_back(currentNode->m_val);
+template <typename T>
+std::vector<T> BTree<T>::toVector()
+{
+    std::vector<T> result{};
+    addElements(result, m_root);
 
-
-// }
+    return result;
+}

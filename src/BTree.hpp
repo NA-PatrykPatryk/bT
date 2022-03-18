@@ -24,6 +24,7 @@ public:
 
 private:
     void printElements(Node<T>*);
+    void addElements(std::vector<T>&, Node<T>*);
 
 private:
     int m_size;
