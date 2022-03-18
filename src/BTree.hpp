@@ -1,7 +1,13 @@
-class Node {
+#pragma once
 
+template <typename T>
+struct Node 
+{
+    Node(T input);
+    T m_val{};
 };
 
+template <typename T>
 class BTree {
 public:
     BTree();
@@ -9,8 +15,11 @@ public:
 public:
     int size();
     bool empty();
+    void insert(T);
 
 private:
     int m_size;
-    Node* m_root;
+    Node<T>* m_root;
 };
+
+#include "BTree.inl"
