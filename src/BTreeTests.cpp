@@ -3,9 +3,13 @@
 
 
 
-
-TEST(BTreeTest, whenCreatedBTreeSizeIs0) 
-{
+TEST(BTreeTest, whenCreatedBTreeSizeIs0) {
     BTree sut;
     EXPECT_EQ(sut.size(), 0);
+}
+
+
+TEST(BTreeTest, whenCreatedBTreeIsEmpty) {
+    BTree sut;
+    EXPECT_EQ(sut.empty(), true);
 }
