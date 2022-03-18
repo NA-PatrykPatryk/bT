@@ -32,3 +32,16 @@ TEST_F(BTreeTest, BinaryTreeShouldBeAbleToContainObjectsOfDifferentTypes) {
     sut2.insert("test");
     EXPECT_EQ(sut2.size(), 1);
 }
+
+TEST_F(BTreeTest, whenInserting2ElementSizeIs2) {
+    intSut.insert(5);
+    intSut.insert(3);
+    EXPECT_EQ(intSut.size(), 2);
+}
+
+TEST_F(BTreeTest, whenInserting3ElementSizeIs3) {
+    intSut.insert(5);
+    intSut.insert(3);
+    intSut.insert(1);
+    EXPECT_EQ(intSut.size(), 3);
+}

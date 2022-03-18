@@ -22,8 +22,24 @@ bool BTree<T>::empty() {
 }
 
 template <typename T>
-void BTree<T>::insert(T input)
+void BTree<T>::insert(T value)
 {
-    m_root = new Node(input);
-    ++m_size;
+    if (m_root == nullptr) {
+        m_root = new Node(value);
+        ++m_size;
+    } else {
+        Node<T>* current = m_root;
+        while(true) {
+            if (value < current->m_val) {
+                if (current->m_left == nullptr) {
+                    current->m_left = new Node(value);
+                    ++m_size;
+                    break;
+                } else {
+                    current = current->m_left;
+                }
+            }
+        }
+    }
+
 }

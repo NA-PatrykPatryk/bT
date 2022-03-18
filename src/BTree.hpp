@@ -5,6 +5,7 @@ struct Node
 {
     Node(T input);
     T m_val{};
+    Node* m_left {nullptr};
 };
 
 template <typename T>
